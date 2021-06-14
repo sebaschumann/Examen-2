@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Ensayos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ensayos.each do |ensayo| %>
+      <tr>
+        <td><%= ensayo.name %></td>
+        <td><%= link_to 'Show', ensayo %></td>
+        <td><%= link_to 'Edit', edit_ensayo_path(ensayo) %></td>
+        <td><%= link_to 'Destroy', ensayo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= paginate @ensayos %>
+<br>
+<li class="nav-item">
+    <%= link_to 'New Ensayo', new_ensayo_path if can? :create, Ensayo%>
+  </li
